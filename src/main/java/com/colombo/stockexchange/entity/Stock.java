@@ -36,4 +36,19 @@ public class Stock {
 
     @Enumerated(EnumType.ORDINAL)
     private MarketType marketType;
+
+    public Stock() {
+    }
+
+    public Stock(String stockName, StockSymbol stockSymbol, Double currentPrice, String change, Double buyingPrice, Double sellingPrice, Double high52, Double low52, MarketType marketType) {
+        this.stockName = stockName;
+        this.stockSymbol = stockSymbol;
+        this.currentPrice = currentPrice;
+        this.change = change;
+        this.buyingPrice = buyingPrice;
+        this.sellingPrice = sellingPrice;
+        this.high52 = high52;
+        this.low52 = low52;
+        this.marketType = marketType;
+    }
 }
