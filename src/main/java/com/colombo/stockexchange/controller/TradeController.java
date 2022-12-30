@@ -1,7 +1,6 @@
 package com.colombo.stockexchange.controller;
 
 import com.colombo.stockexchange.dto.TradeDto;
-import com.colombo.stockexchange.entity.Stock;
 import com.colombo.stockexchange.entity.Trade;
 import com.colombo.stockexchange.service.TradeService;
 import org.slf4j.Logger;
