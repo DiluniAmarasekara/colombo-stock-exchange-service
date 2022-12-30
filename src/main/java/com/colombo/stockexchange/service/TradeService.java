@@ -13,4 +13,8 @@ public interface TradeService {
     Boolean buy(TradeDto tradeDto);
 
     List<Trade> getAllSell();
+
+    Boolean sell(TradeDto tradeDto);
+
+    List<Trade> getAllTradesByStock(Long stockId);
 }

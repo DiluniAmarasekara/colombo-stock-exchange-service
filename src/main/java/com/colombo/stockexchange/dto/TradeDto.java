@@ -17,7 +17,5 @@ public class TradeDto {
 
     private Integer quantity;
 
-    private String buySell;
-
     private Long userId;
 }
