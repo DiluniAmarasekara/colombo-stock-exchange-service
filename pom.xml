@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.colombo</groupId>
 	<artifactId>stock-exchange</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>stock-exchange</name>
 	<description>Cloud Computing Applications - CW1</description>
 	<properties>
