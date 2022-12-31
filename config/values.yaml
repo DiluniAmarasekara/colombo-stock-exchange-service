@@ -11,4 +11,4 @@ pod:
 
 secretEnv:
     - name: DATABASE_PASSWORD
-       value: ${{ secrets.DATABASE_PASSWORD }}
+      value: ${{ secrets.DATABASE_PASSWORD }}

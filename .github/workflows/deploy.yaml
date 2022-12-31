@@ -1,9 +1,6 @@
 name: Deploy
 
-on:
-  create:
-    tags:
-      - v*
+on: workflow_dispatch
 
 jobs:
   deploy:
