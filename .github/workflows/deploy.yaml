@@ -21,7 +21,7 @@ jobs:
       - name: Set variables
         run: |
           CONF=$(doctl kubernetes cluster kubeconfig show f7886032-2dc8-4512-9340-a51fc617c664)
-          echo "$CONF" >> $KUBECONFIG
+          echo "$CONF" >> $env:KUBECONFIG
             # Kubernetes rollout the latest image
       - name: 'Deploy'
         uses: 'vimeda/helm@v1.6.8'
