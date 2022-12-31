@@ -18,15 +18,14 @@ jobs:
       - name: Save DigitalOcean kubeconfig
         run: doctl kubernetes cluster kubeconfig save f7886032-2dc8-4512-9340-a51fc617c664
 
-      # Kubernetes rollout the latest image
-      - name: 'Deploy'
-        uses: 'vimeda/helm@v1.6.8'
-        with:
-          release: 'stock-exchange'
-          namespace: 'stock-exchange'
-          chart: 'helm'
-          token: '${{ github.token }}'
-          value-files: >-
-            [
-              "config/values.yaml"
-            ]
+      - name: Install helm
+        run: |
+          curl -LO https://get.helm.sh/helm-v3.8.0-linux-amd64.tar.gz
+          tar -zxvf helm-v3.8.0-linux-amd64.tar.gz
+          mv linux-amd64/helm /usr/local/bin/helm
+          helm version
+
+      - name: Deploy
+        run: |
+          helm upgrade --install --timeout 1m rest ./helm -f ./config/values.yaml \
+            --namespace stock-exchange --create-namespace
