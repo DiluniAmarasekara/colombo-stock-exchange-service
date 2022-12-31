@@ -14,15 +14,6 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-      # Save the right kuberenetes context depending on the branch name
-      - name: Save DigitalOcean kubeconfig
-        run: doctl kubernetes cluster kubeconfig save f7886032-2dc8-4512-9340-a51fc617c664
-
-      - name: Set variables
-        run: |
-          CONF=$(doctl kubernetes cluster kubeconfig show f7886032-2dc8-4512-9340-a51fc617c664)
-          echo "KUBECONFIG=$CONF" >> $GITHUB_ENV
-            # Kubernetes rollout the latest image
       - name: 'Deploy'
         uses: 'vimeda/helm@v1.6.8'
         with:
@@ -35,4 +26,4 @@ jobs:
               "config/values.yaml"
             ]
         env:
-          KUBECONFIG_FILE: '${{ env.KUBECONFIG }}'
+          KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
