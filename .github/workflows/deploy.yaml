@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  create:
+    tags:
+      - v*
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      # Save the right kuberenetes context depending on the branch name
+      - name: Save DigitalOcean kubeconfig
+        run: doctl kubernetes cluster kubeconfig save f7886032-2dc8-4512-9340-a51fc617c664
+
+      # Kubernetes rollout the latest image
+      - name: 'Deploy'
+        uses: 'deliverybot/helm@v1'
+        with:
+          release: 'stock-exchange'
+          namespace: 'stock-exchange'
+          chart: 'helm'
+          token: '${{ github.token }}'
+          value-files: >-
+            [
+              "config/values.yaml"
+            ]
