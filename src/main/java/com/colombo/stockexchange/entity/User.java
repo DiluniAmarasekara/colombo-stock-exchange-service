@@ -32,7 +32,4 @@ public class User {
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private UserBankDetails userBankDetails;
-
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private WatchList watchList;
 }

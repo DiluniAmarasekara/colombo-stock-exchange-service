@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * created by Diluni
  * on 12/19/2022
@@ -45,6 +47,11 @@ public class StockServiceImpl implements StockService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public List<Stock> getAll() {
+        return stockRepository.findAll();
     }
 
 }

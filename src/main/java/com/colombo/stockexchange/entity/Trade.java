@@ -10,12 +10,13 @@ import javax.persistence.*;
  */
 @Entity
 @Data
-public class Trade {
+public class Trade extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tradeId;
 
-    @OneToOne(optional = true, fetch = FetchType.EAGER)
+    @ManyToOne
+    @JoinColumn(name = "stock_id", nullable = false)
     private Stock stock;
 
     private Double individualPrice;
@@ -25,6 +26,17 @@ public class Trade {
     private String buySell;
 
     @ManyToOne
-    @JoinColumn(name = "transaction_id", nullable = false)
+    @JoinColumn(name = "transaction_id")
     private Transaction transaction;
+
+    public Trade(){}
+
+    public Trade(Long tradeId, Stock stock, Double individualPrice, Integer quantity, String buySell, Transaction transaction) {
+        this.tradeId = tradeId;
+        this.stock = stock;
+        this.individualPrice = individualPrice;
+        this.quantity = quantity;
+        this.buySell = buySell;
+        this.transaction = transaction;
+    }
 }

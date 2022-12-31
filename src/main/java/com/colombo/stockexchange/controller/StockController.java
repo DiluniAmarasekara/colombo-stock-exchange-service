@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * created by Diluni
@@ -38,6 +39,12 @@ public class StockController {
         logger.info("Enter the stock update PUT REST API");
         Boolean status = stockService.update(stock);
         return status ? new ResponseEntity<>("Stock has been updated successfully!", HttpStatus.CREATED) : new ResponseEntity<>("Stock update has been failed!", HttpStatus.EXPECTATION_FAILED);
+    }
+
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public List<Stock> getAll() {
+        logger.info("Enter the stock get GET REST API");
+        return stockService.getAll();
     }
 
 }
