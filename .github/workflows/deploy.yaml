@@ -23,7 +23,7 @@ jobs:
 
       # Kubernetes rollout the latest image
       - name: 'Deploy'
-        uses: 'deliverybot/helm@v1'
+        uses: 'vimeda/helm@v1.6.8'
         with:
           release: 'stock-exchange'
           namespace: 'stock-exchange'
