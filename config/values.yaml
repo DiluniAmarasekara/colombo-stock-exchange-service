@@ -8,6 +8,8 @@ pod:
       value: "db-postgresql-sgp1-colombo-stock-exchange-do-user-13208630-0.b.db.ondigitalocean.com"
     - name: "DATABASE_PORT"
       value: "25060"
+    - name: "DATABASE_USER"
+      value: "root"
 
 secretEnv:
     - name: DATABASE_PASSWORD
