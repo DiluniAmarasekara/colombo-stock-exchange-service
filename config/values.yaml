@@ -1,0 +1,14 @@
+image:
+  repository: diluniamarasekara/colombo-stock-exchange
+
+pod:
+  port: 8090    
+  env:
+    - name: "DATABASE_HOSTNAME"
+      value: "db-postgresql-sgp1-colombo-stock-exchange-do-user-13208630-0.b.db.ondigitalocean.com"
+    - name: "DATABASE_PORT"
+      value: "25060"
+
+secretEnv:
+    - name: DATABASE_PASSWORD
+       value: ${{ secrets.DATABASE_PASSWORD }}
