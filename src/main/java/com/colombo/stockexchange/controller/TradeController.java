@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -39,6 +36,19 @@ public class TradeController {
     public List<Trade> getAllSell() {
         logger.info("Enter the trade get GET REST API");
         return tradeService.getAllSell();
+    }
+
+    @RequestMapping(value = "/sell", method = RequestMethod.POST)
+    public ResponseEntity<String> sell(@Valid @RequestBody(required = true) TradeDto tradeDto) {
+        logger.info("Enter the stock sell POST REST API");
+        Boolean status = tradeService.sell(tradeDto);
+        return status ? new ResponseEntity<>("Stock sell creation has been successfully!", HttpStatus.CREATED) : new ResponseEntity<>("Stock sell creation has been failed!", HttpStatus.EXPECTATION_FAILED);
+    }
+
+    @RequestMapping(value = "/getAllTradesByStock", method = RequestMethod.GET)
+    public List<Trade> getAllTradesByStock(@RequestParam Long stockId) {
+        logger.info("Enter the getAllTradesByStock GET REST API");
+        return tradeService.getAllTradesByStock(stockId);
     }
 
 }

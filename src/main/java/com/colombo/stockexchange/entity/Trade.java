@@ -31,12 +31,18 @@ public class Trade extends BaseEntity {
 
     public Trade(){}
 
-    public Trade(Long tradeId, Stock stock, Double individualPrice, Integer quantity, String buySell, Transaction transaction) {
-        this.tradeId = tradeId;
+    public Trade(Stock stock, Double individualPrice, Integer quantity, String buySell, Transaction transaction) {
         this.stock = stock;
         this.individualPrice = individualPrice;
         this.quantity = quantity;
         this.buySell = buySell;
         this.transaction = transaction;
     }
+
+    public Trade(Double individualPrice, Integer quantity, Transaction transaction) {
+        this.individualPrice = individualPrice;
+        this.quantity = quantity;
+        this.transaction = transaction;
+    }
+
 }
