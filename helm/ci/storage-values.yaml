@@ -1,5 +1,0 @@
-storage:
-  name: my-storage
-  create: true
-  requests:
-    storage: 2Gi

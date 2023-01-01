@@ -19,6 +19,8 @@ jobs:
         with:
           release: 'stock-exchange'
           namespace: 'stock-exchange'
+          secrets: '${{ toJSON(secrets) }}' 
+          atomic: false
           chart: 'helm'
           token: '${{ github.token }}'
           value-files: >-
