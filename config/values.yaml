@@ -16,3 +16,15 @@ secrets:
 service:
   type: LoadBalancer
   internalPort: 8090    
+
+# livenessProbe -- Customize the livenessProbe.
+livenessProbe:
+  httpGet:
+    path: /actuator/health
+    port: http
+
+# readinessProbe -- Customize the readiness probe.
+readinessProbe:
+  httpGet:
+    path: /actuator/health
+    port: http
