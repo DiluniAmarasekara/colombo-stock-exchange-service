@@ -23,6 +23,7 @@ jobs:
           atomic: false
           chart: 'helm'
           token: '${{ github.token }}'
+          version: '${{ github.sha }}'
           value-files: >-
             [
               "config/values.yaml"
