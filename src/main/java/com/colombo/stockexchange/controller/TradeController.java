@@ -45,7 +45,7 @@ public class TradeController {
     }
 
     @RequestMapping(value = "/getAllTradesByStock", method = RequestMethod.GET)
-    public List<Trade> getAllTradesByStock(@RequestParam Long stockId) {
+    public List<TradeDto> getAllTradesByStock(@RequestParam Long stockId) {
         logger.info("Enter the getAllTradesByStock GET REST API");
         return tradeService.getAllTradesByStock(stockId);
     }

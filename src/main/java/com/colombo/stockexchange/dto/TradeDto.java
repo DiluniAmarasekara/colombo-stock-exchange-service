@@ -18,4 +18,14 @@ public class TradeDto {
     private Integer quantity;
 
     private Long transactionId;
+
+    public TradeDto() {
+    }
+
+    public TradeDto(Long stockId, Long tradeId, Double individualPrice, Integer quantity) {
+        this.stockId = stockId;
+        this.tradeId = tradeId;
+        this.individualPrice = individualPrice;
+        this.quantity = quantity;
+    }
 }

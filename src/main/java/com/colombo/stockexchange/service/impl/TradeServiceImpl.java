@@ -82,7 +82,7 @@ public class TradeServiceImpl implements TradeService {
     }
 
     @Override
-    public List<Trade> getAllTradesByStock(Long stockId) {
+    public List<TradeDto> getAllTradesByStock(Long stockId) {
         return tradeRepository.findAllByStock_StockId(stockId);
     }
 }
