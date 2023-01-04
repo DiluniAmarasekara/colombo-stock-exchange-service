@@ -1,4 +1,4 @@
-name: Deploy
+name: Kubernetes CD with Helm
 
 on: workflow_dispatch
 
