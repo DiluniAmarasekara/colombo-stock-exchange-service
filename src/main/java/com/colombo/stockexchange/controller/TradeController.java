@@ -26,7 +26,7 @@ public class TradeController {
     private TradeService tradeService;
 
     @RequestMapping(value = "/buy", method = RequestMethod.POST)
-    public ResponseEntity<String> buy(@Valid @RequestBody(required = true) TradeDto tradeDto) {
+    public ResponseEntity<String> buy(@RequestBody TradeDto tradeDto) {
         logger.info("Enter the stock buy POST REST API");
         Boolean status = tradeService.buy(tradeDto);
         return status ? new ResponseEntity<>("Stock buy has been successfully!", HttpStatus.CREATED) : new ResponseEntity<>("Stock buy has been failed!", HttpStatus.EXPECTATION_FAILED);
@@ -39,7 +39,7 @@ public class TradeController {
     }
 
     @RequestMapping(value = "/sell", method = RequestMethod.POST)
-    public ResponseEntity<String> sell(@Valid @RequestBody(required = true) TradeDto tradeDto) {
+    public ResponseEntity<String> sell(@RequestBody TradeDto tradeDto) {
         logger.info("Enter the stock sell POST REST API");
         Boolean status = tradeService.sell(tradeDto);
         return status ? new ResponseEntity<>("Stock sell creation has been successfully!", HttpStatus.CREATED) : new ResponseEntity<>("Stock sell creation has been failed!", HttpStatus.EXPECTATION_FAILED);

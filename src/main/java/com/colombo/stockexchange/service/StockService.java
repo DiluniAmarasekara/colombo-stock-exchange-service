@@ -1,5 +1,6 @@
 package com.colombo.stockexchange.service;
 
+import com.colombo.stockexchange.dto.StockDto;
 import com.colombo.stockexchange.entity.Stock;
 
 import java.util.List;
@@ -9,9 +10,9 @@ import java.util.List;
  * on 12/19/2022
  */
 public interface StockService {
-    Boolean add(Stock stock);
+    Boolean add(StockDto stockDto);
 
-    Boolean update(Stock stock);
+    Boolean update(StockDto stockDto);
 
     List<Stock> getAll();
 }

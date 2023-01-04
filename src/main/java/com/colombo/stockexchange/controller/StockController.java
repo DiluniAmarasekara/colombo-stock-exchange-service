@@ -1,5 +1,6 @@
 package com.colombo.stockexchange.controller;
 
+import com.colombo.stockexchange.dto.StockDto;
 import com.colombo.stockexchange.entity.Stock;
 import com.colombo.stockexchange.service.StockService;
 import org.slf4j.Logger;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -28,16 +28,16 @@ public class StockController {
     private StockService stockService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<String> add(@Valid @RequestBody(required = true) Stock stock) {
+    public ResponseEntity<String> add(@RequestBody StockDto stockDto) {
         logger.info("Enter the stock add POST REST API");
-        Boolean status = stockService.add(stock);
+        Boolean status = stockService.add(stockDto);
         return status ? new ResponseEntity<>("Stock has been added successfully!", HttpStatus.CREATED) : new ResponseEntity<>("Stock creation has been failed!", HttpStatus.EXPECTATION_FAILED);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public ResponseEntity<String> update(@Valid @RequestBody(required = true) Stock stock) {
+    public ResponseEntity<String> update(@RequestBody StockDto stockDto) {
         logger.info("Enter the stock update PUT REST API");
-        Boolean status = stockService.update(stock);
+        Boolean status = stockService.update(stockDto);
         return status ? new ResponseEntity<>("Stock has been updated successfully!", HttpStatus.CREATED) : new ResponseEntity<>("Stock update has been failed!", HttpStatus.EXPECTATION_FAILED);
     }
 
