@@ -24,4 +24,13 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    public Transaction() {
+    }
+
+    public Transaction(Date timeStampDate, Double totalPrice, User user) {
+        this.timeStampDate = timeStampDate;
+        this.totalPrice = totalPrice;
+        this.user = user;
+    }
 }

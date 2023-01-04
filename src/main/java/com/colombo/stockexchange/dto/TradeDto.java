@@ -17,5 +17,5 @@ public class TradeDto {
 
     private Integer quantity;
 
-    private Long userId;
+    private Long transactionId;
 }

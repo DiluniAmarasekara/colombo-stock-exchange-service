@@ -3,8 +3,10 @@ package com.colombo.stockexchange.service.impl;
 import com.colombo.stockexchange.dto.TradeDto;
 import com.colombo.stockexchange.entity.Stock;
 import com.colombo.stockexchange.entity.Trade;
+import com.colombo.stockexchange.entity.Transaction;
 import com.colombo.stockexchange.repository.StockRepository;
 import com.colombo.stockexchange.repository.TradeRepository;
+import com.colombo.stockexchange.repository.TransactionRepository;
 import com.colombo.stockexchange.service.TradeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,22 +31,27 @@ public class TradeServiceImpl implements TradeService {
     @Autowired
     private StockRepository stockRepository;
 
+    @Autowired
+    private TransactionRepository transactionRepository;
+
     @Transactional
     @Override
     public Boolean buy(TradeDto tradeDto) {
         Optional<Trade> trade = tradeRepository.findById(tradeDto.getTradeId());
         if (trade.isPresent()) {
             if (trade.get().getBuySell().equals("SELL") && tradeDto.getQuantity() <= trade.get().getQuantity()) {
-//                TODO transactions set up
-                Trade buyStock = new Trade(trade.get().getStock(),
-                        tradeDto.getIndividualPrice(), tradeDto.getQuantity(), "BUY", null);
-                trade.get().setQuantity(trade.get().getQuantity() - tradeDto.getQuantity());
-                try {
-                    tradeRepository.saveAndFlush(buyStock);
-                    tradeRepository.saveAndFlush(trade.get());
-                    return true;
-                } catch (RuntimeException e) {
-                    return false;
+                Optional<Transaction> transaction = transactionRepository.findById(tradeDto.getTransactionId());
+                if (transaction.isPresent()) {
+                    Trade buyStock = new Trade(trade.get().getStock(),
+                            tradeDto.getIndividualPrice(), tradeDto.getQuantity(), "BUY", transaction.get());
+                    trade.get().setQuantity(trade.get().getQuantity() - tradeDto.getQuantity());
+                    try {
+                        tradeRepository.saveAndFlush(buyStock);
+                        tradeRepository.saveAndFlush(trade.get());
+                        return true;
+                    } catch (RuntimeException e) {
+                        return false;
+                    }
                 }
             }
         }
@@ -62,7 +69,6 @@ public class TradeServiceImpl implements TradeService {
 //        tradeDto tradeId should be null
         Optional<Stock> stock = stockRepository.findById(tradeDto.getStockId());
         if (stock.isPresent()) {
-//                 TODO transactions set up
             Trade sellStock = new Trade(stock.get(), tradeDto.getIndividualPrice(), tradeDto.getQuantity(),
                     "SELL", null);
             try {
