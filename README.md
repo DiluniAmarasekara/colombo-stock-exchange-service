@@ -39,6 +39,6 @@ java -jar stock-exchange-0.0.1.jar
 
 ## Postman Collection
 
-> You can import [_postman collection_](postman collection/colombo-stock-exchange.postman_collection.json) into your postman workspace and see all the REST APIs with json requests which are included with success, unsuccess and validations checking sample responses.
+> You can import [_postman collection_](postman_collection/colombo-stock-exchange.postman_collection.json) into your postman workspace and see all the REST APIs with json requests which are included with success, unsuccess and validations checking sample responses.
 
 ----------
