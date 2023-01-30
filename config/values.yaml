@@ -1,5 +1,6 @@
 image:
   repository: diluniamarasekara/colombo-stock-exchange
+  tag: latest-version
 
 env:
   - name: "DATABASE_HOSTNAME"
