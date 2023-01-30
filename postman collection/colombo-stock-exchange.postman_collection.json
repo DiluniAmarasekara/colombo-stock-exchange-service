@@ -1,0 +1,637 @@
+{
+	"info": {
+		"_postman_id": "6d5a9043-3f29-4623-bee1-8370a867b807",
+		"name": "colombo-stock-exchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4312975"
+	},
+	"item": [
+		{
+			"name": "Get All Stocks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "159.89.208.158:80/stock/getAll",
+					"host": [
+						"159",
+						"89",
+						"208",
+						"158"
+					],
+					"port": "80",
+					"path": [
+						"stock",
+						"getAll"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Stocks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/stock/getAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"stock",
+								"getAll"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 07:29:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"stockId\": 1,\n        \"stockName\": \"Allianz\",\n        \"stockSymbol\": \"B\",\n        \"currentPrice\": 100,\n        \"change\": \"yes\",\n        \"buyingPrice\": 95,\n        \"sellingPrice\": 105,\n        \"high52\": 120,\n        \"low52\": 93,\n        \"marketType\": \"CS\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Add Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"stockName\":\"Allianz\",\r\n   \"stockSymbol\":\"B\",\r\n   \"currentPrice\":100,\r\n   \"change\":\"yes\",\r\n   \"buyingPrice\":95,\r\n   \"sellingPrice\":105,\r\n   \"high52\":120,\r\n   \"low52\":93,\r\n   \"marketType\":\"CS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/stock/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"stock",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Stock",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"stockName\":\"Allianz\",\r\n   \"stockSymbol\":\"B\",\r\n   \"currentPrice\":100,\r\n   \"change\":\"yes\",\r\n   \"buyingPrice\":95,\r\n   \"sellingPrice\":105,\r\n   \"high52\":120,\r\n   \"low52\":93,\r\n   \"marketType\":\"CS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/stock/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"stock",
+								"add"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 07:27:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Stock has been added successfully!"
+				}
+			]
+		},
+		{
+			"name": "Update Stock",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"stockId\": 1,\r\n    \"stockName\": \"Allianz\",\r\n    \"stockSymbol\": \"A\",\r\n    \"currentPrice\": 103,\r\n    \"change\": \"yes\",\r\n    \"buyingPrice\": 95,\r\n    \"sellingPrice\": 105,\r\n    \"high52\": 120,\r\n    \"low52\": 93,\r\n    \"marketType\": \"CS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/stock/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"stock",
+						"update"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Stock",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stockId\": 1,\r\n    \"stockName\": \"Allianz\",\r\n    \"stockSymbol\": \"A\",\r\n    \"currentPrice\": 103,\r\n    \"change\": \"yes\",\r\n    \"buyingPrice\": 95,\r\n    \"sellingPrice\": 105,\r\n    \"high52\": 120,\r\n    \"low52\": 93,\r\n    \"marketType\": \"CS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/stock/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"stock",
+								"update"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 07:31:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Stock has been updated successfully!"
+				}
+			]
+		},
+		{
+			"name": "Sell Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"stockId\": 1,\r\n    \"individualPrice\": 101,\r\n    \"quantity\": 20,\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/trade/sell",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"trade",
+						"sell"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sell Stock",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stockId\": 1,\r\n    \"individualPrice\": 101,\r\n    \"quantity\": 20,\r\n    \"userId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/trade/sell",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"trade",
+								"sell"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 10:44:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Stock sell creation has been successfully!"
+				}
+			]
+		},
+		{
+			"name": "Add Transaction (Make the payment)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/transaction/add?userId=2&amount=1010",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"transaction",
+						"add"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "2"
+						},
+						{
+							"key": "amount",
+							"value": "1010"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Transaction (Make the payment)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/transaction/add?userId=2&amount=1010",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"transaction",
+								"add"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "amount",
+									"value": "1010"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 13:55:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Transaction has been added successfully!"
+				}
+			]
+		},
+		{
+			"name": "Buy Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tradeId\": 4,\r\n    \"individualPrice\": 101,\r\n    \"quantity\": 10,\r\n    \"userId\": 2,\r\n    \"transactionId\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/trade/buy",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"trade",
+						"buy"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Buy Stock",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tradeId\": 4,\r\n    \"individualPrice\": 101,\r\n    \"quantity\": 10,\r\n    \"userId\": 2,\r\n    \"transactionId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/trade/buy",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"trade",
+								"buy"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 15:05:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Stock buy has been successfully!"
+				}
+			]
+		},
+		{
+			"name": "Get All Sell Trades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/trade/getAllSell",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"trade",
+						"getAllSell"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Sell Trades",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/trade/getAllSell",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"trade",
+								"getAllSell"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 15:06:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"tradeId\": 3,\n        \"stock\": {\n            \"stockId\": 1,\n            \"stockName\": \"Allianz\",\n            \"stockSymbol\": \"B\",\n            \"currentPrice\": 100,\n            \"change\": \"yes\",\n            \"buyingPrice\": 95,\n            \"sellingPrice\": 105,\n            \"high52\": 120,\n            \"low52\": 93,\n            \"marketType\": \"CS\"\n        },\n        \"individualPrice\": 103,\n        \"quantity\": 95,\n        \"buySell\": \"SELL\",\n        \"transaction\": null\n    },\n    {\n        \"tradeId\": 4,\n        \"stock\": {\n            \"stockId\": 1,\n            \"stockName\": \"Allianz\",\n            \"stockSymbol\": \"B\",\n            \"currentPrice\": 100,\n            \"change\": \"yes\",\n            \"buyingPrice\": 95,\n            \"sellingPrice\": 105,\n            \"high52\": 120,\n            \"low52\": 93,\n            \"marketType\": \"CS\"\n        },\n        \"individualPrice\": 101,\n        \"quantity\": 10,\n        \"buySell\": \"SELL\",\n        \"transaction\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get All Trades By Stock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/trade/getAllTradesByStock?stockId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"trade",
+						"getAllTradesByStock"
+					],
+					"query": [
+						{
+							"key": "stockId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Trades By Stock",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/trade/getAllTradesByStock?stockId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"trade",
+								"getAllTradesByStock"
+							],
+							"query": [
+								{
+									"key": "stockId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 15:19:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"stockId\": 1,\n        \"tradeId\": 3,\n        \"individualPrice\": 103,\n        \"quantity\": 95,\n        \"transactionId\": null\n    },\n    {\n        \"stockId\": 1,\n        \"tradeId\": 4,\n        \"individualPrice\": 101,\n        \"quantity\": 10,\n        \"transactionId\": null\n    },\n    {\n        \"stockId\": 1,\n        \"tradeId\": 5,\n        \"individualPrice\": 101,\n        \"quantity\": 10,\n        \"transactionId\": null\n    }\n]"
+				}
+			]
+		}
+	]
+}
