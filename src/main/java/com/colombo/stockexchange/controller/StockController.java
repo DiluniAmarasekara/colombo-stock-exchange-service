@@ -38,7 +38,7 @@ public class StockController {
     public ResponseEntity<String> update(@RequestBody StockDto stockDto) {
         logger.info("Enter the stock update PUT REST API");
         Boolean status = stockService.update(stockDto);
-        return status ? new ResponseEntity<>("Stock has been updated successfully!", HttpStatus.CREATED) : new ResponseEntity<>("Stock update has been failed!", HttpStatus.EXPECTATION_FAILED);
+        return status ? new ResponseEntity<>("Stock has been updated successfully!", HttpStatus.OK) : new ResponseEntity<>("Stock update has been failed!", HttpStatus.EXPECTATION_FAILED);
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
