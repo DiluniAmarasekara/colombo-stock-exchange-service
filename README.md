@@ -1,5 +1,4 @@
 # colombo-stock-exchange-service
-_Cloud Computing Applications - Course Work - 1_
 
 ## Technologies
 - Apache Maven 3.8.6
